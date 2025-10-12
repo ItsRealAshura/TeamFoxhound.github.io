@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Patch Notes</title>
+    <style>
+        /* Basic Reset & Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Use a CRT/terminal-like font */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+
+        body {
+            background-color: #0c0c0c;
+            color: #00ff00;
+            font-family: 'Roboto Mono', monospace;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 20px;
+            overflow: auto;
+            position: relative;
+        }
+
+        /* CRT Screen Effects */
+        body:before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            /* Creates the subtle scan-line effect */
+            background-image: linear-gradient(
+                transparent 50%,
+                rgba(0, 255, 0, 0.1) 50%
+            );
+            background-size: 100% 4px;
+            animation: scan-line 3s infinite linear;
+            z-index: 0;
+        }
+
+        @keyframes scan-line {
+            from {
+                background-position: 0 0;
+            }
+            to {
+                background-position: 0 -400px;
+            }
+        }
+
+        body:after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            /* Creates the CRT noise effect */
+            background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);
+            mix-blend-mode: overlay;
+            opacity: 0.8;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(#noiseFilter)" opacity="0.1"/></svg>');
+            z-index: 0;
+        }
+
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes pulse-glow {
+            0% { text-shadow: 0 0 5px #00ff00; }
+            50% { text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00; }
+            100% { text-shadow: 0 0 5px #00ff00; }
+        }
+
+        @keyframes glitch-header {
+            0%, 50%, 60% {
+                transform: translate(0);
+                text-shadow: 0 0 5px #00ff00;
+                opacity: 1;
+            }
+            51% {
+                transform: translate(-2px, 1px) skewX(20deg);
+                text-shadow: 0 0 10px #ff0000;
+                opacity: 0.8;
+            }
+            52% {
+                transform: translate(2px, -1px) skewX(-20deg);
+                text-shadow: 0 0 10px #0000ff;
+                opacity: 0.8;
+            }
+            53% {
+                transform: translate(-1px, 0) skewX(10deg);
+                text-shadow: 0 0 10px #00ff00;
+                opacity: 1;
+            }
+        }
+
+        .container {
+            width: 95%;
+            max-width: 900px;
+            border: 2px solid #00ff00;
+            border-radius: 8px;
+            padding: 30px;
+            background-color: rgba(0, 0, 0, 0.85);
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+            position: relative;
+            z-index: 1;
+            filter: drop-shadow(0 0 2px #00ff00);
+            transform: perspective(1000px) rotateX(1deg);
+            animation: text-flicker 1s infinite alternate, fade-in 1s ease-out;
+        }
+
+        @keyframes text-flicker {
+            from {
+                text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+            }
+            to {
+                text-shadow: 0 0 2px #00ff00, 0 0 4px #00ff00;
+            }
+        }
+        
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+            animation: glitch-header 5s infinite;
+            margin-bottom: 10px;
+        }
+        
+        .patch-notes-container {
+            text-align: left;
+        }
+
+        .patch-note {
+            border: 1px dashed #00ff00;
+            border-radius: 4px;
+            padding: 20px;
+            margin-bottom: 25px;
+            background-color: rgba(0, 255, 0, 0.05);
+        }
+
+        .patch-note h2 {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 1px solid #00ff00;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+
+        .patch-note ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .patch-note ul li:before {
+            content: '> ';
+            color: #00ff00;
+        }
+
+        .patch-note ul li {
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        /* Navigation Button */
+        .back-button {
+            display: inline-block;
+            background-color: #00ff00;
+            color: #000;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 2px solid #00ff00;
+            transition: all 0.3s ease-in-out;
+            letter-spacing: 2px;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+
+        .back-button:hover {
+            box-shadow: 0 0 15px #00ff00;
+            transform: translateY(-3px);
+            background-color: #00cc00;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>PATCH NOTES</h1>
+            <a href="/html/index.html" class="back-button">RETURN TO DATABASE</a>
+        </header>
+
+        <main class="patch-notes-container">
+            <!-- PATCH NOTE ENTRY 1 -->
+            <div class="patch-note">
+                <h2>VERSION 1.2.0 - [DATE]</h2>
+                <ul>
+                    <li>Added a dedicated **Home** page.</li>
+                    <li>Added a dedicated **Database** page.</li>
+                    <li>Added a dedicated **Member's Database** page to access user's FIles.</li>
+                    <li>Added a dedicated **Patch Notes** page for future updates.</li>
+                    <li>Introduced an interactive **user resume template** for job applications.</li>
+                    <li>Refined the main page's visual effects, including improved glitch and flicker animations.</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
