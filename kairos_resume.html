@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kairos - Resume</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        /* Header Section */
+        header {
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #ddd;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        header h2 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #7f8c8d;
+            margin-top: 0;
+        }
+
+        /* Profile Picture Styling */
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 8px; /* Makes the image rectangular with rounded corners */
+            object-fit: cover; /* Ensures the image covers the area without distortion */
+            border: 4px solid #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .contact-info li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        .contact-info i {
+            color: #3498db;
+        }
+
+        /* Section Styles */
+        .section {
+            padding-top: 20px;
+            padding-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+        }
+
+        /* Experience and Education */
+        .experience-item, .education-item {
+            margin-bottom: 20px;
+        }
+
+        .job-title, .degree {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .company-name, .school-name {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #7f8c8d;
+            margin-top: 2px;
+        }
+
+        .job-dates, .education-dates {
+            font-size: 0.9rem;
+            color: #95a5a6;
+            margin-top: 2px;
+        }
+
+        .job-description {
+            margin-top: 10px;
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .job-description li {
+            margin-bottom: 8px;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .skill-category {
+            font-weight: 600;
+            color: #34495e;
+            margin-bottom: 5px;
+        }
+
+        .skill-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .skill-list li {
+            margin-bottom: 3px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- HEADER SECTION -->
+        <header>
+            <!-- Add your image URL here. Use a professional headshot. -->
+            <img src="kairos.png" alt="Your Profile Picture" class="profile-pic">
+            <h1>[Kairos Cj J. MIranda]</h1>
+            <ul class="contact-info">
+                <li><i class="fas fa-envelope"></i> [Kairoscjmiranda@gmail.com]</li>
+                <li><i class="fas fa-phone"></i> [09816094964]</li>
+                <li><i class="fab fa-facebook"></i> [Kairos Cj Miranda]</li>
+                <li><i class="fas fa-map-marker-alt"></i> [ BRGY, San Isidro, Rodriguez Rizal]</li>
+            </ul>
+        </header>
+
+        <!-- SUMMARY SECTION -->
+        <section class="section">
+            <h3 class="section-title">Summary</h3>
+            <p>
+                [. i might not be the best, but i will do my very best to do my job efficiently and correctly.
+                ]
+            </p>
+
+        </section>
+
+        <!-- EXPERIENCE SECTION -->
+        <section class="section">
+            <h3 class="section-title">Experience</h3>
+            <div class="experience-item">
+                <div class="job-title">[Graphic Designer]</div>
+                <div class="company-name">[Kasiglahan village Senior High School]</div>
+                <div class="job-dates">[2023] – [2024]</div>
+                <ul class="job-description">
+                    <li>[Help Created the new School Rulebook design.]</li>
+                    <li>[help the teachers design images, presentation etc..]</li>
+                </ul>
+            </div>
+            <!-- Duplicate this div for more experience items -->
+        </section>
+
+        <!-- EDUCATION SECTION -->
+        <section class="section">
+            <h3 class="section-title">Education</h3>
+
+            <div class="education-item">
+                <div class="Degree">[Junior High School]</div>
+                <div class="school-name">[San Isidro National High School]</div>
+                <div class="education-dates">2019- 2023]</div>
+
+            <div class="education-item">
+                <div class="degree">[Information Comunication Technology]</div>
+                <div class="school-name">[Colegio De Montalban]</div>
+                <div class="education-dates">2023- 2024]</div>
+
+            <div class="education-item">
+                <div class="degree">[Batchelor Of Science in Infornation Technology ]</div>
+                <div class="school-name">[Colegio De Montalban]</div>
+                <div class="education-dates">[2024- Ongoing]</div>
+            </div>
+            <!-- Duplicate this div for more education items -->
+        </section>
+
+        <!-- SKILLS SECTION -->
+        <section class="section">
+            <h3 class="section-title">Skills</h3>
+            <div class="skills-grid">
+                <div>
+                    <div class="skill-category">Technical Skills</div>
+                    <ul class="skill-list">
+                        <li>Coding Html</li>
+                        <li>Assembling and disassembling</li>
+                        <li>Software Repair</li>
+                </div>
+                <div>
+                    <div class="skill-category">Soft Skills</div>
+                    <ul class="skill-list">
+                        <li>Teamwork</li>
+                        <li>Honesty</li>
+                        <li>Communication</li>
+                    </ul>
+                </div>
+                <!-- Add more skill categories as needed -->
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>
